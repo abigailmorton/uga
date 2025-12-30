@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>UGA QB Name Generator</title>
+    <meta name="description" content="Generate your extremely plausible Georgia Bulldogs starting QB name." />
+	<link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>UGA QB Name Generator</h1>
+      <p>
+        Enter any name to get a stable “your UGA QB name” result, or leave it
+        blank for pure randomness.
+      </p>
+
+      <section class="card" aria-label="Generator controls">
+        <div class="row">
+          <div>
+            <label for="seed">Your name (optional)</label>
+            <input
+              id="seed"
+              type="text"
+              inputmode="text"
+              autocomplete="off"
+              placeholder="e.g., Abby Jane"
+            />
+          </div>
+
+          <div>
+            <button id="btn-generate" type="button">Generate</button>
+          </div>
+
+          <div>
+            <button id="btn-copy" type="button" title="Copy to clipboard">
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <p class="tiny">
+          Tip: if you type a name and hit Enter, it generates too.
+        </p>
+      </section>
+
+      <section class="namebox" aria-label="Generated name">
+        <div id="result">Loading names…</div>
+        <div id="meta"></div>
+      </section>
+
+      <div class="footer tiny">
+        Data source:
+        <a
+          href="https://en.wikipedia.org/wiki/List_of_Georgia_Bulldogs_starting_quarterbacks"
+          target="_blank"
+          rel="noreferrer"
+          >Wikipedia list of Georgia Bulldogs starting quarterbacks</a
+        >.
+      </div>
+
+      <noscript>
+        <p class="card">
+          This site needs JavaScript enabled to generate names.
+        </p>
+      </noscript>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

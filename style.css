@@ -1,0 +1,410 @@
+:root {  --bg:#f4ede4;      /* warm cream background */
+  --card:#ffffff;
+  --text:#372f2b;
+  --muted:#7c6b63;
+  --acc:#b7655b;     /* muted burgundy accent */}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+header { display: flex; gap: 16px; align-items: center; }
+
+/* AVATAR = square photo */
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 0;     /* square corners */
+  object-fit: cover;    /* fill without distortion */
+  display: block;
+}
+
+/* Put name + avatar in a tidy header row */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Banner image crops nicely and stays behind content */
+.hero {
+  width: 100%;
+  height: 220px;         /* adjust to taste */
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Keep the link buttons below the banner */
+.links {
+  margin-top: 12px;      /* pushes buttons below the image */
+}
+
+/* Optional: dim banner so text on top is readable */
+.hero-wrap { position: relative; }
+.hero-wrap::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.35));
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+h1 { font-size: 1.35rem; margin: 0; }
+p.sub { margin: 6px 0 0; color: var(--muted); }
+
+.links { display: grid; gap: 10px; margin: 22px 0; }
+.links a {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--text);
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 12px 14px; border-radius: 12px;
+  transition: transform .05s ease, background .2s ease;
+}
+.links a:hover { transform: translateY(-1px); background: #828A8F; }
+
+.badge {
+  font-size: 1.1rem;
+  /* width: 24px;  <-- remove this */
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;            /* tiny space between emojis */
+  white-space: nowrap; /* keep them on one line */
+  line-height: 1;
+  text-align: center;
+}
+
+.box:first-of-type {
+  margin-top: 1.25rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-btn {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+}
+
+
+
+.box {
+  background: #fff;
+/*  background: linear-gradient(180deg, #fff, #fdf7f2); */
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin: 0 0 1.2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cmd {
+  display: block;
+  padding: 0.75rem;
+  background: #111;
+  color: #fafafa;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  margin-bottom: 12px
+}
+
+.fingerprint {
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.copywrap {
+  position: relative;
+}
+
+button.copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: 0;
+  background: #333;
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+copy:hover { background: #000; }
+
+.cmd,
+.pre {
+  white-space: pre-wrap;    /* wrap long lines at spaces */
+  word-break: break-word;   /* if a long chunk has no spaces */
+  overflow-x: auto;         /* allow horizontal scroll if needed */
+}
+
+
+.card h2 {
+  margin-top: 0;
+}
+
+.code {
+  display: block;
+  background: rgba(0,0,0,0.06);
+  border-radius: .5rem;
+  padding: .75rem;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+.section {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.section.box {
+  max-width: 100%;
+}
+
+.section.tips {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin: 0 0 1.2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(180deg, #fff, #fdf7f2);
+  border: 1px solid rgba(183,101,91,.15);
+}
+
+#profile p {
+  line-height: 1.55;
+  font-size: 0.98rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  #profile p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+}
+
+/* Overall CV content width */
+.cv {
+  max-width: 720px;
+  margin: 40px auto;
+  padding-left: 1.5rem;   /* one unified left edge */
+  padding-right: 1.5rem;
+}
+
+/* Overall section spacing */
+.cv section {
+  margin-bottom: 1.25rem;   /* tighter than default */
+}
+
+/* Section headers */
+.cv section h2 {
+  margin-bottom: 0.5rem;    /* pull content closer to header */
+}
+
+/* Prevent extra space at the end of sections */
+.cv section > :last-child {
+  margin-bottom: 0;
+}
+
+/* Header block */
+.cv-header {
+  display: block;          /* cancel the global flex */
+  margin-left: 0;     /* your left margin */
+}
+
+.cv-header .cv-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.cv-header .cv-line {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* The lines under the name */
+.cv-line {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* Make sure links wrap nicely and don’t overflow */
+.cv-line a {
+  word-break: break-word;
+  text-decoration: none;
+}
+.cv-line a:hover {
+  text-decoration: underline;
+}
+
+/* Make bullet text and paragraphs align */
+.cv p {
+  margin-left: 0;
+}
+
+.cv ul {
+  padding-left: 1.2rem;   /* control bullet indent */
+  margin-top: 0.25rem;
+}
+
+.cv li {
+  margin-bottom: 0.6rem;
+  margin-left: 0;
+  line-height:1.4;
+}
+
+
+
+/* Role title*/
+.role h3 {
+  margin-top: 0rem;
+  margin-bottom: -0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Office and years line */
+.role p em {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0.4rem;    /* tighten before bullets */
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Education Blocks */
+.degree {
+  margin-bottom: 0.75rem;
+}
+
+.degree h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+}
+
+.degree p em {
+  display: block;
+  margin: 0 0 0.2rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.degree p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.row { display:flex; gap:10px; flex-wrap: wrap; align-items: center; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.pill { background: linear-gradient(180deg, #fff, #fdf7f2); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding:6px 10px; color: var(--muted); }
+
+footer { margin-top: 16px; font-size: .9rem; color: var(--muted); text-align: center; }
+.copy { cursor:pointer; border:1px solid rgba(255,255,255,.12); background: transparent; color: var(--text); border-radius:10px; padding:6px 10px; }
+
+
+/* --- UGA QB generator patch (works with the current index.html) --- */
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* You already have .card in the template, but your generator’s .card
+   expects a light panel. Force it to match your site. */
+.card {
+  background: #fff;
+  border: 1px solid rgba(183,101,91,.18);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Controls */
+label { color: var(--muted); }
+
+input[type="text"] {
+  width: min(28rem, 100%);
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(183,101,91,.25);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: rgba(183,101,91,.55);
+  box-shadow: 0 0 0 4px rgba(183,101,91,.15);
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid rgba(183,101,91,.25);
+  background: linear-gradient(180deg, #fff, #fdf7f2);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 0.7rem 0.95rem;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #fdf7f2;
+}
+
+/* Output panel (your generator calls it .namebox) */
+.namebox {
+  background: linear-gradient(180deg, #fff, #fdf7f2);
+  border: 1px solid rgba(183,101,91,.18);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-top: 1.25rem;
+}
+
+#result {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.25rem;
+}
+
+#meta,
+.tiny,
+.footer {
+  color: var(--muted);
+}
+
+.footer {
+  margin-top: 16px;
+  font-size: .9rem;
+  text-align: center;
+}
+
+/* Your template already defines .row, but make sure it fits this layout */
+.row { gap: 10px; align-items: end; }

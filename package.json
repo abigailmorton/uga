@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build:names": "node tools/build-names.mjs"
+  }
+}
